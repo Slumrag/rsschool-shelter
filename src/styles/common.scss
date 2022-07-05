@@ -1,0 +1,15 @@
+@import '~normalize.css';
+
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+}
+
+body {
+    background: #555;
+}
+$font-color:red;
+h1{
+    color: $font-color;
+}

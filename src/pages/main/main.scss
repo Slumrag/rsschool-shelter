@@ -1,0 +1,64 @@
+@import '/styles/common.scss';
+// @import 'fonts';
+// @import 'colors';
+.header {
+    // position: absolute;
+    //     width: 1200px;
+    //     height: 60px;
+    //     left: calc(50% - 1200px/2);
+    //     top: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    // max-height: 60px;
+    padding-top: 60px;
+    // padding-bottom: 60px;
+    &::before{
+        top: 0;
+        left: 0;
+        position: absolute;
+        content:"";
+        height: 908px;
+        width: 100vw;
+        background: $start-screen-gradient-background;
+        z-index: -1;
+    }
+
+}
+.logo {
+    &__title {
+        @include setfonts($logo-title, $color-primary);
+        margin-top: 0;
+        margin-bottom: 10px;
+    }
+    &__subtitle {
+        text-align: center;
+        @include setfonts($logo-subtitle, $color-light-xl);
+    }
+}
+.menu {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    column-gap: 36px;
+    &-wrapper {}
+
+    &__item {
+        // box-sizing:content-box;
+        @include setfonts($paragraph-l, $color-dark-s);
+            &:hover,
+            &-active {
+                color: $color-light-s;
+                border-bottom: 3px solid $color-primary;
+            }
+    }
+    &__link {
+        // @include setfonts($paragraph-l, $color-dark-s);
+        // &:hover,&-active{
+        //     color: $color-light-s;
+        //     border-bottom: 3px solid $color-primary;
+        //     padding-bottom: 5px;
+        // }
+    }
+    
+}

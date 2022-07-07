@@ -1,15 +1,47 @@
+@use 'sass:map';
 @import '~normalize.css';
-
+@import 'fonts'; @import'colors';
 *,
 *::after,
 *::before {
+    padding: 0;
+    margin: 0;
+    border: 0;
     box-sizing: border-box;
 }
-
-body {
-    background: #555;
+a{
+    &:hover,&:visited{
+        // color:#000;
+    // text-decoration: none;
+    }
+    color:inherit;
+    text-decoration: none;
 }
-$font-color:red;
-h1{
-    color: $font-color;
+ul,ol,li{
+    list-style: none;
+}
+img{
+    vertical-align: top;
+}
+h1,h2,h3,h4,h5,h6{
+    font-weight: inherit;
+    font-size: inherit;
+}
+html,body {
+    height: 100%;
+    line-height: 1;
+    font-size: 16px;
+    color: #000;
+}
+
+.wrapper{
+    min-height: 100%;
+    overflow: hidden;
+}
+._container{
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 10px;
+    box-sizing:content-box;
+    // background: $footer-gradient-background;
 }

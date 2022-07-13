@@ -31,6 +31,8 @@ module.exports = (env, argvs) => {
 			filename: '[name].[hash].bundle.js',
 			path: path.resolve(__dirname, 'dist'),
 			clean: true,
+			publicPath: '',
+			assetModuleFilename: 'images/[hash][ext][query]',
 		},
 		plugins: [
 			...PAGES.map(
@@ -46,6 +48,10 @@ module.exports = (env, argvs) => {
 		],
 		module: {
 			rules: [
+				{
+					test: /\.html$/i,
+					loader: 'html-loader',
+				},
 				{
 					test: /\.js$/,
 					exclude: /node_modules/,

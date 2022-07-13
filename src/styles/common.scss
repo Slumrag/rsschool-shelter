@@ -35,6 +35,9 @@ html,body {
 .wrapper{
     min-height: 100%;
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 ._container{
     max-width: 1200px;
@@ -101,4 +104,199 @@ html,body {
     //     min-width: 52px;
     //     min-height: 52px;
    
+}
+
+//header
+.header {
+    &__container {
+        position: relative;
+        // min-height: 60px;
+        // padding-top: 60px;
+        // padding-bottom: 60px;
+    }
+
+    &__content {
+        // position: absolute;
+        // padding-top: 60px;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+    }
+
+    &__logo {}
+
+    &__menu {}
+}
+.logo {
+    display: flex;
+    min-height: 60px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+
+    &__title {
+        @include setfonts($logo-title);
+        margin: 0;
+        &_theme_dark{
+            color: $color-dark-l;
+        }
+        &_theme_light{
+            color: $color-primary;
+        }
+    }
+    &__subtitle {
+        text-align: center;
+        @include setfonts($logo-subtitle);
+        &_theme_dark{
+            color: $color-dark-3xl;
+        }
+        &_theme_light{
+            color: $color-light-xl;
+        }
+    }
+}
+//nav menu
+.menu {
+    &__list {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        column-gap: 36px;
+    }
+    &__item {
+        @include setfonts($paragraph-l);
+        &_theme_light{
+            color: $color-dark-s;
+            &:hover,
+            &_hover {
+                color: $color-light-s;
+            }
+        }
+        &_theme_dark{
+            color: $color-dark-xl;
+            &:hover,
+            &_hover {
+                color: $color-dark-3xl;
+            }
+
+        }  
+        &:active,
+        &_active {
+            // color: $color-light-s;
+            border-bottom: 3px solid $color-primary;
+        }
+    }
+
+    &__link {}
+
+}
+//card
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 30px;
+    border-radius: 9px;
+    background: $color-light-s;
+    padding-bottom: 30px;
+    max-width: 270px;
+    max-height: 435px;
+
+    &:hover,
+    &_hover {
+        box-shadow: 0px 2px 35px 14px rgba(13, 13, 13, 0.04);
+
+        &>button {
+            @extend .button_hover;
+        }
+    }
+
+    &__image {
+        border-radius: 9px 9px 0px 0px;
+    }
+
+    &__name {
+        @include setfonts($h4, $color-dark-xl);
+        line-height: auto;
+    }
+
+    &__button {
+        width: 187px;
+    }
+}
+.section-title{
+    @include setfonts($h3,$color-dark-l);
+    white-space: pre-line;
+}
+//footer
+
+.footer {
+    background: $footer-gradient-background;
+
+    &__container {
+        // height: 500px;
+        padding-top: 40px;
+        display: flex;
+        // align-items: center;
+        justify-content: space-between;
+
+    }
+
+    &__info {
+        padding-top: 16px;
+        // column-gap: 150px;
+        width: 740px;
+
+    }
+
+    &_image {
+        // position: relative;
+        // bottom: 0;
+    }
+}
+
+
+.info {
+    display: flex;
+    justify-content: space-between;
+
+    &__item {
+        display: flex;
+        flex-direction: column;
+        min-height: 234px;
+    }
+
+    &__title {
+        @include setfonts($h3, $color-light-xl);
+        white-space: pre-line;
+    }
+
+    &__content {
+        display: flex;
+        align-items: center;
+        column-gap: 20px;
+        // flex-direction: column;
+        @include setfonts($h4, $color-primary);
+    }
+
+    &__icon {}
+
+    &__text {
+        white-space: pre-line;
+    }
+}
+
+.contacts {
+    row-gap: 40px;
+}
+
+// .contacts .info__content:last-child{
+//     margin-top: 4px;
+
+// }
+.location {
+    min-width: 302px;
+    row-gap: 32px;
 }

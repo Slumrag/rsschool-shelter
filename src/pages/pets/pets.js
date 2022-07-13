@@ -1,3 +1,2 @@
-import '/styles/common.scss';
-
-console.log('pets');
+import './pets.scss';
+import './pets.html';

@@ -1,68 +1,26 @@
 @import '/styles/common.scss';
-//header
 
+//header
 .header {
-    // position: relative;
     &__container {
-            position: relative;
+            // position: relative;
             // min-height: 60px;
             // padding-top: 60px;
             // padding-bottom: 60px;
     }
     &__content{
         position: absolute;
-            // left: calc(20);
-            // right: 20%;
             padding-top: 60px;
-            width: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
+            // width: 100%;
+            // display: flex;
+            // align-items: center;
+            // justify-content: space-between;
 
     }
     &__logo{}
     &__menu{}
 }
-.logo {
-    display: flex;
-    min-height: 60px;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    &__title {
-        @include setfonts($logo-title, $color-primary);
-        // max-width: 185px;
-        margin: 0;
-        // margin-bottom: 10px;
-    }
-    &__subtitle {
-        text-align: center;
-        @include setfonts($logo-subtitle, $color-light-xl);
-    }
-}
-.menu {
-    &__list {
-        display: flex;
-        align-items: baseline;
-        justify-content: space-between;
-        column-gap: 36px;
-        @include setfonts($paragraph-l, $color-dark-s);
-    }
-    &__item {
-            &:hover,
-            &_hover{
-                color: $color-light-s;
-            }
-            &:active,
-            &_active {
-                color: $color-light-s;
-                border-bottom: 3px solid $color-primary;
-            }
-    }
-    &__link {
-    }
-    
-}
+
 //start screen
 .start-screen {
     background: $start-screen-gradient-background;
@@ -121,8 +79,8 @@
         row-gap: 25px;
         max-width: 430px;
         &__title {
-            @include setfonts($h3,$color-dark-l);
-            white-space: pre-line;
+            // @include setfonts($h3,$color-dark-l);
+            // white-space: pre-line;
         }
         &__subtitle {
             @include setfonts($paragraph-l, $color-dark-xl);
@@ -145,8 +103,8 @@
     // width: 100vw;
     }
     &__title {
-        @include setfonts($h3,$color-dark-l);
-        white-space: pre-line;
+        // @include setfonts($h3,$color-dark-l);
+        // white-space: pre-line;
         text-align: center;
         max-height: 90px;
     }
@@ -171,40 +129,13 @@
         // @extend .button-arrow;
     }
 }
+.cards {
+     display: flex;
+     justify-content: space-between;
+     column-gap: 90px;
+ }
+ //card
 
-.card {
-    &-container{
-        display: flex;
-        justify-content: space-between;
-        column-gap: 90px;
-    }
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    row-gap: 30px;
-    border-radius: 9px;
-    background: $color-light-s;
-    padding-bottom: 30px;
-    &:hover,
-    &_hover{
-        box-shadow: 0px 2px 35px 14px rgba(13, 13, 13, 0.04);
-        &>button{
-            @extend .button_hover;
-        }
-    }
-    &__image {
-            border-radius: 9px 9px 0px 0px;
-    }
-
-    &__name {
-        @include setfonts($h4,$color-dark-xl);
-        line-height: auto;
-    }
-
-    &__button {
-        width: 187px;
-    }
-}
 //help
 .help {
     &__container {
@@ -217,9 +148,9 @@
     }
 
     &__title {
-        @include setfonts($h3,$color-dark-l);
+        // @include setfonts($h3,$color-dark-l);
+        // white-space: pre-line;
         text-align: center;
-        white-space: pre-line;
         max-height: 90px;
     }
 
@@ -286,8 +217,8 @@
     }
 
     &__title {
-        @include setfonts($h3,$color-dark-l);
-        white-space: pre-line;
+        // @include setfonts($h3,$color-dark-l);
+        // white-space: pre-line;
         max-height: 90px;
     }
 
@@ -315,69 +246,6 @@
     &__number {
         @include setfonts($h4,$color-dark-l);
     }
-}
-//footer
-
-.footer {
-    background: $footer-gradient-background;
-    &__container {
-        // height: 500px;
-        padding-top: 40px;
-        display: flex;
-        // align-items: center;
-        justify-content: space-between;
-        
-    }
-    &__info{
-        padding-top: 16px;
-        // column-gap: 150px;
-        width: 740px;
-
-    }
-
-    &_image {
-        // position: relative;
-        // bottom: 0;
-    }
-}
-
-
-.info {
-    display: flex;
-    justify-content: space-between;
-    &__item{
-        display: flex;
-        flex-direction: column;
-        min-height: 234px;
-    }
-    &__title {
-        @include setfonts($h3,$color-light-xl);
-        white-space: pre-line;
-    }
-    &__content {
-        display: flex;
-        align-items: center;
-        column-gap: 20px;
-        // flex-direction: column;
-        @include setfonts($h4, $color-primary);
-    }
-    &__icon {
-    }
-
-    &__text {
-        white-space: pre-line;
-    }
-}
-.contacts {
-    row-gap: 40px;
-}
-// .contacts .info__content:last-child{
-//     margin-top: 4px;
-
-// }
-.location {
-    min-width: 302px;
-    row-gap: 32px;
 }
 
 

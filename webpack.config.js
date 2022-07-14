@@ -1,6 +1,15 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const ghpages = require('gh-pages');
+
+ghpages.publish(
+	'dist',
+	{
+		message: 'Auto-generated commit',
+	},
+	function (err) {}
+); //publish to gh-pages
 const PAGES = ['main', 'pets'];
 module.exports = (env, argvs) => {
 	return {
@@ -31,7 +40,7 @@ module.exports = (env, argvs) => {
 			filename: '[name].[hash].bundle.js',
 			path: path.resolve(__dirname, 'dist'),
 			clean: true,
-			publicPath: '',
+			publicPath: '/rsschool-shelter/',
 			assetModuleFilename: 'images/[hash][ext][query]',
 		},
 		plugins: [

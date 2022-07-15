@@ -12,6 +12,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _main_html__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./main.html */ "./pages/main/main.html");
 
 
+console.log('main');
 
 /***/ }),
 
@@ -353,4 +354,4 @@ module.exports = __webpack_require__.p + "images/e9a128c9b41515595906.png";
 /******/ var __webpack_exports__ = (__webpack_exec__("./pages/main/main.js"));
 /******/ }
 ]);
-//# sourceMappingURL=main.b2b159ebe5c222d7c0b6.bundle.js.map
+//# sourceMappingURL=main.39c440cc47851d2c7c3c.bundle.js.map

@@ -1,5 +1,5 @@
 "use strict";
-(self["webpackChunk"] = self["webpackChunk"] || []).push([["main"],{
+(self["webpackChunk"] = self["webpackChunk"] || []).push([["index"],{
 
 /***/ "./index.js":
 /*!******************!*\
@@ -36,4 +36,4 @@ var code = "<!DOCTYPE html>\r\n<html lang=\"en\">\r\n<head>\r\n    <meta charset
 /******/ var __webpack_exports__ = (__webpack_exec__("./index.js"));
 /******/ }
 ]);
-//# sourceMappingURL=main.b33332ffb38d16585040.bundle.js.map
+//# sourceMappingURL=index.b2b159ebe5c222d7c0b6.bundle.js.map

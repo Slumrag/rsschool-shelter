@@ -2,6 +2,9 @@
 @use 'sass:color';
 @import '~normalize.css';
 @import 'fonts'; @import'colors';
+//breakpoints
+$bp-large: 1279px;
+$bp-medium: 767px;
 *,
 *::after,
 *::before {
@@ -42,8 +45,13 @@ html,body {
 ._container{
     max-width: 1200px;
     margin: 0 auto;
-    // padding: 0 10px;
-    // box-sizing:content-box;
+    padding: 0 30px;
+    box-sizing:content-box;
+    @media screen and (max-width:$bp-medium) {
+        &{
+            padding: 0 10px;
+        }
+    }
 }
 .button {
     display: flex;
@@ -113,6 +121,7 @@ html,body {
         // min-height: 60px;
         // padding-top: 60px;
         // padding-bottom: 60px;
+        
     }
 
     &__content {
@@ -122,12 +131,28 @@ html,body {
         display: flex;
         align-items: center;
         justify-content: space-between;
-
+        
     }
-
+    &__burger{
+        display: none;
+            cursor: pointer;
+            width: 30px;
+            height: 22px;
+        @media screen and (max-width:$bp-medium) {
+            &{
+                display: block;
+            }
+        }
+    }
     &__logo {}
 
-    &__menu {}
+    &__menu {
+        @media screen and (max-width:$bp-medium) {
+                & {
+                    display: none;
+                }
+            }
+    }
 }
 .logo {
     display: flex;

@@ -3,64 +3,76 @@
 //header
 .header {
     &__container {
-            // position: relative;
-            // min-height: 60px;
-            // padding-top: 60px;
-            // padding-bottom: 60px;
+
     }
     &__content{
-        position: absolute;
-            padding-top: 60px;
-            // width: 100%;
-            // display: flex;
-            // align-items: center;
-            // justify-content: space-between;
+        margin: 60px 0;
+        @media screen and (max-width: $bp-large) {
+            &{
+                margin-top: 30px;
+            }
+        }
+        @media screen and (max-width: $bp-medium) {
+            &{
+                // margin-top: 30px;
+            }
+        }
 
     }
     &__logo{}
-    &__menu{}
+    &__burger {
+        stroke:$color-primary;
+        margin-right: 43px;
+    }
+    &__menu{
+    }
 }
-
 //start screen
 .start-screen {
     background: $start-screen-gradient-background;
     &__container{
         padding-top: 180px;
+        margin-top: -180px;
         display: flex;
-        // align-items: baseline;
+        flex-wrap: wrap;
+        // align-items: center;
         justify-content: space-between;
         
     }
-    &__content{}
+    &__content{
+        display: flex;
+        // flex-wrap: wrap;
+            margin-top: 163px;
+            flex-direction: column;
+            row-gap: 42px;
+            max-width: 460px;
+            // flex: 0 0 auto;
+    }
+          &__title {
+              @include setfonts($h2, $color-light-xl);
+              white-space: pre-line;
+          }
     
+          &__subtitle {
+              @include setfonts($paragraph-l, $color-dark-s)
+          }
+    
+          &__button {
+              padding: 0 45px;
+              max-width: max-content;
+          }
     &__image {
         position: relative;
-        width: 698px;
-        height: 728px;
-        bottom: 0px;
+        // flex: 0 1 auto;
+        align-self: flex-end;
+        // max-width: 100%;
+            // height: auto;
+        // as
+        max-width: 698px;
+        max-height: 728px;
+        // bottom: 0px;
         z-index: 1;
-}
-.content {
-    display: flex;
-    margin-top: 163px;
-    flex-direction: column;
-    row-gap: 42px;
-    max-width: 460px;
-
-    &__title {
-        @include setfonts($h2, $color-light-xl);
-        white-space: pre-line;
     }
-
-    &__subtitle {
-        @include setfonts($paragraph-l, $color-dark-s)
-    }
-
-    &__button {
-        padding: 0 45px;
-        max-width: max-content;
-    }
-}
    
 }
 //about

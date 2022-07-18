@@ -3,6 +3,12 @@
 //header
 .header {
     &__container {
+        @media screen and (max-width: $bp-medium) {
+                & {
+                    // height:  180px;
+                    // margin-top: 30px;
+                }
+            }
 
     }
     &__content{
@@ -17,14 +23,16 @@
                 // margin-top: 30px;
             }
         }
-
+        &._active {
+            background: $color-dark-3xl;
+        }
     }
     &__logo{}
     &__burger {
         stroke:$color-primary;
-        margin-right: 43px;
     }
     &__menu{
+        
     }
 }
 //start screen

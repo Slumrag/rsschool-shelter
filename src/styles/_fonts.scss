@@ -75,7 +75,7 @@ $logo-subtitle:(
     'line-height':normal,
     'letter-spacing':0.1em
     );
-@mixin setfonts($font, $color: #000) {
+@mixin setfonts($font, $color:0) {
     font: {
         family: map.get($font, 'font-family');
         size: map.get($font, 'font-size');
@@ -84,5 +84,7 @@ $logo-subtitle:(
     }
     line-height: map.get($font, 'line-height');
     letter-spacing: map.get($font, 'letter-spacing');
-    color: $color;
+    @if $color{
+        color: $color;
+    }
 }

@@ -3,9 +3,15 @@
     background: $color-light-xl;
     &__content {
         padding: 30px 0;
+        &._active {
+            background: $color-light-xl;
+        }
     }
     &__burger{
-        stroke: #000;
+        stroke: $color-dark-3xl;
+    }
+    &__menu {
+        
     }
 }
 

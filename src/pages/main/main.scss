@@ -45,7 +45,22 @@
         flex-wrap: wrap;
         // align-items: center;
         justify-content: space-between;
+        @media screen and (max-width: $bp-large) {
+                & {
+                    // margin-top: 30px;
+                    padding-top: 150px;
+                    margin-top: -150px;
+                    flex-direction: column;
+                    align-items: center;
+                }
+            }
         
+        @media screen and (max-width: $bp-medium) {
+            & {
+                // margin-top: 30px;
+            }
+        }
+
     }
     &__content{
         display: flex;
@@ -55,31 +70,68 @@
             row-gap: 42px;
             max-width: 460px;
             // flex: 0 0 auto;
+        @media screen and (max-width: $bp-large) {
+            & {
+                margin-top: 0px;
+                margin-bottom: 100px;
+            }
+        }
+    
+        @media screen and (max-width: $bp-medium) {
+            & {
+                text-align: center;
+                margin-bottom: 105px;
+            }
+        }
     }
-          &__title {
-              @include setfonts($h2, $color-light-xl);
-              white-space: pre-line;
-          }
+    &__title {
+        @include setfonts($h2, $color-light-xl);
+        white-space: pre-line;
+        @media screen and (max-width: $bp-medium) {
+            & {
+                @include setfonts($h3-mobile);
+            }
+        }
+    }
+
+    &__subtitle {
+        @include setfonts($paragraph-l, $color-dark-s);
+
+    }
     
-          &__subtitle {
-              @include setfonts($paragraph-l, $color-dark-s)
-          }
-    
-          &__button {
-              padding: 0 45px;
-              max-width: max-content;
-          }
+    &__button {
+        padding: 0 45px;
+        max-width: max-content;
+        @media screen and (max-width: $bp-large) {
+            & {
+                
+                align-self: center;
+            }
+        }
+    }
     &__image {
         position: relative;
         // flex: 0 1 auto;
         align-self: flex-end;
-        // max-width: 100%;
-            // height: auto;
-        // as
         max-width: 698px;
+        min-width: 260px;
         max-height: 728px;
+        width: 100%;
         // bottom: 0px;
-        z-index: 1;
+        // z-index: 1;
+        @media screen and (max-width: $bp-large) {
+                & {
+                    max-width: 569px;
+                    // margin-top: 0px;
+                    margin-left: auto;
+                }
+        }
+        @media screen and (max-width: $bp-medium) {
+            & {
+                max-width: 260px;
+                // margin-left: 40px;
+            }
+        }
     }
    
 }
@@ -92,48 +144,85 @@
         column-gap: 120px;
         padding-top: 80px;
         padding-bottom: 100px;
+        @media screen and (max-width: $bp-large) {
+            & {
+                flex-direction: column;
+                row-gap: 80px;
+                // text-align: center;
+            }
+        }
+        @media screen and (max-width: $bp-medium) {
+            & {
+                row-gap: 42px;
+                padding: 42px 25px;
+                text-align: justify;
+            }
+        }        
     }
-    &-content {
+    &__info {
         display: flex;
         flex-direction: column;
         row-gap: 25px;
         max-width: 430px;
-        &__title {
-            // @include setfonts($h3,$color-dark-l);
-            // white-space: pre-line;
+        @media screen and (max-width: $bp-large) {
+            & {
+                order: 1;
+            }
         }
-        &__subtitle {
-            @include setfonts($paragraph-l, $color-dark-xl);
-        }
+         
     }    
-    &__image {}
+    &__title {
+       
+    }
+    &__paragraph {
+        @include setfonts($paragraph-l, $color-dark-xl);
+        @media screen and (max-width: $bp-medium) {
+            &:last-child {
+                margin-top: -3px;
+            }
+        }
+    }
+    &__image {
+        @media screen and (max-width: $bp-large) {
+            & {
+                order: 2;
+            }
+        }
+        @media screen and (max-width: $bp-medium) {
+            & {
+                max-width: 260px;
+            }
+        }
+    }
 
 }
 //pets
 .pets {
     background: $color-light-l;
     &__container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    row-gap:60px;
-    padding-top: 80px;
-    padding-bottom: 100px;
-    // width: 100vw;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        row-gap:60px;
+        padding-top: 80px;
+        padding-bottom: 100px;
+        @media screen and (max-width: $bp-medium) {
+            & {
+                padding-top: 42px;
+                padding-bottom: 42px;
+                row-gap: 42px;
+            }
+        }
     }
     &__title {
-        // @include setfonts($h3,$color-dark-l);
-        // white-space: pre-line;
         text-align: center;
         max-height: 90px;
     }
 
     &__slider {
-        // width: 100%;
     }
     &__button {
-        // @extend .button-primary;
         padding: 0 45px;
     }
    
@@ -142,18 +231,59 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    // column-gap:52px;
+    flex-direction: column;
     width: 100%;
+    position: relative;
+    @media screen and (max-width: $bp-medium) {
+            & {
+                row-gap: 20px;
+            }
+        }
     &__right,
     &__left {
-        // @extend .button-arrow;
+        
+    }
+    &__arrows{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        position: absolute;
+        top: calc(50% - 52px/2);
+        width: 100%;
+        @media screen and (max-width: $bp-medium) {
+            & {
+                position: relative;
+                // align-self: flex-end;
+                // justify-content: space-around;
+                max-width: 184px;
+            }
+        }
+    }
+    &__cards {
+        display: flex;
+        justify-content: space-between;
+        column-gap: 90px;
+        row-gap: 40px;
+    
+        @media screen and (max-width: $bp-large) {
+            & {
+               column-gap: 40px;
+            }
+        }
+    }
+    &__card{
+        @media screen and (max-width: $bp-large) {
+            &:last-child {
+               display: none;
+            }
+        }
+        @media screen and (max-width: $bp-medium) {
+            &:nth-child(2) {
+               display: none;
+            }
+        }
     }
 }
-.cards {
-     display: flex;
-     justify-content: space-between;
-     column-gap: 90px;
- }
  //card
 
 //help
@@ -165,18 +295,23 @@
         row-gap: 60px;
         padding-top: 80px;
         padding-bottom: 100px;
+        @media screen and (max-width: $bp-medium) {
+                & {
+                    padding-top: 42px;
+                    padding-bottom: 42px;
+                    row-gap: 42px;
+                }
+        
+            }
     }
 
     &__title {
-        // @include setfonts($h3,$color-dark-l);
-        // white-space: pre-line;
         text-align: center;
         max-height: 90px;
     }
 
     &__list {
         max-width: 1026px;//!
-        // min-height: 281px;
     }
 }
 
@@ -190,8 +325,29 @@
     align-content: space-between;
     column-gap: 119px;
     row-gap: 55px;
+    @media screen and (max-width: $bp-large) {
+        & {
+            column-gap: 60px;
+            max-width: 630px;
+          
+        }
+    }
+    @media screen and (max-width: $bp-medium) {
+        & {
+            justify-content: flex-start;
+            column-gap: 30px;
+            max-width: 290px;
+            row-gap: 30px;
+          
+        }
+    }
        
     &__item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        min-height:113px;
         $mr-item:84px;
         &:nth-last-child(1) {
             margin-right: $mr-item;
@@ -199,18 +355,43 @@
         &:nth-last-child(4) {
             margin-left: $mr-item;
         }
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: space-between;
-        min-height:113px;
+        @media screen and (max-width: $bp-large) {
+            &:nth-child(n) {
+                margin: 0;
+            }
+            &{
+                flex: 0 0 170px;
+            }
+            
+        }
+        @media screen and (max-width: $bp-medium) {
+            &{
+                min-height: 87px;
+                flex: 0 0 130px;
+            }
+            
+        }
     }
 
-    &__icon {}
+    &__icon {
+        @media screen and (max-width: $bp-medium) {
+                & {
+                    max-width: 50px;
+                    max-height: 50px;
+                }
+        
+            }
+    }
 
     &__text {
         @include setfonts($h4,$color-dark-l);
-        // text-align:center;
+        @media screen and (max-width: $bp-medium) {
+                & {
+                    
+                    @include setfonts($h5);
+                }
+        
+            }
     }
 }
 //donation
@@ -223,31 +404,90 @@
         max-width: 915px;
         padding-top: 80px;
         padding-bottom: 100px;
+        flex-wrap: wrap;
+        @media screen and (max-width: $bp-large) {
+            & {
+                flex-direction: column;
+                row-gap: 60px;
+            }
+    
+        }
+        @media screen and (max-width: $bp-medium) {
+            & {
+                padding-top: 42px;
+                padding-bottom: 42px;
+                row-gap: 42px;
+            }
+    
+        }
     }
 
-    &__image {}
+    &__image {
+        @media screen and (max-width: $bp-large) {
+            & {
+                order: 2;          
+            }
+        
+        }
+        @media screen and (max-width: $bp-medium) {
+            & {
+                max-width: 260px;
+                width: 100%;
+            }
+        
+        }
+    }
 
     &__content {
         display: flex;
-        flex-direction: column;
+        // flex-direction: column;
         justify-content: space-between;
-        // row-gap: 20px;
+        row-gap: 20px;
         min-height: 282px;
         max-width: 380px;
+        flex-wrap: wrap;
+        @media screen and (max-width: $bp-large) {
+            & {
+                order: 1;
+            }        
+        }
+        @media screen and (max-width: $bp-medium) {
+            & {
+                // flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                // row-gap: 20px;
+                // max-width: 300px;
+            }        
+        }
     }
 
     &__title {
-        // @include setfonts($h3,$color-dark-l);
-        // white-space: pre-line;
         max-height: 90px;
     }
 
     &__subtitle {
         @include setfonts($h5,$color-dark-l);
+        @media screen and (max-width: $bp-medium) {
+                & {
+                    text-align: center;
+                    letter-spacing: 0;
+                }
+            }
+    }
+    &__card{
+        // flex: 0 0 300px;
     }
 
     &__legal-info {
         @include setfonts($paragraph-s,$color-dark-m);
+        @media screen and (max-width: $bp-medium) {
+                & {
+                    text-align: justify;
+                    max-width: 280px;
+                }
+        
+            }
     }
 }
 
@@ -255,16 +495,23 @@
     display: flex;
     align-items: center;
     background: $color-primary;
-    max-width: fit-content;
-    min-height: 43px;
+    // max-width: 300px;
+    // width: 100%;
+    min-height: 42px;
     border-radius:9px;
     column-gap:15px;
     padding: 0 15px;
-    // justify-content: space-around;
+    justify-content: space-between;
     &__image {}
 
     &__number {
         @include setfonts($h4,$color-dark-l);
+        // margin-left: auto;
+        @media screen and (max-width: $bp-medium) {
+                & {
+                    @include setfonts($h5);
+                }
+            }
     }
 }
 

@@ -1,6 +1,8 @@
 @import '/styles/common.scss';
 .header {
     background: $color-light-xl;
+    position: fixed;
+    width: 100%;
     &__content {
         padding: 30px 0;
         &._active {
@@ -14,9 +16,15 @@
         
     }
 }
-
+.main{
+    // display: flex;
+    // // align-items: center;
+    // flex: 1 1 auto;
+    // align-self: center;
+}
 .pets {
     background: $color-light-l;
+    padding-top: 120px;
     &__container {
         padding-top: 80px;
         padding-bottom: 100px;
@@ -24,6 +32,19 @@
         flex-direction: column;
         align-items: center;
         row-gap: 45px;
+        @media screen and (max-width: $bp-large) {
+                &{
+                    padding-bottom: 70px;
+                    row-gap: 30px;
+                }
+            }
+        @media screen and (max-width: $bp-medium) {
+                &{
+                    padding-top: 42px;
+                    padding-bottom: 42px;
+                    row-gap: 42px;
+                }
+            }
     }
 
     &__title {
@@ -39,9 +60,50 @@
         padding: 15px 0;
         row-gap: 30px;
         column-gap:40px;
+        @media screen and (max-width: $bp-large) {
+                & {
+                    padding: 0;
+                    max-width: 580px;
+                    // margin-top: 30px;
+                }
+                
+            }
+        @media screen and (max-width: $bp-medium) {
+                & {
+                    // align-items: center;
+                    margin-top: 0;
+                    flex-direction: column;
+                    column-gap: 0;
+                }
+                
+            }
+    }
+    &__card{
+        @media screen and (max-width: $bp-large){
+            &:nth-last-child(-n+2) {
+                    display: none;
+                }
+        }
+        @media screen and (max-width: $bp-medium){
+            &:not(:nth-child(-n+3)) {
+                    display: none;
+                }
+        }
+
     }
     &__navigation {
-    
+    column-gap: 20px;
+        @media screen and (max-width: $bp-large) {
+                &{
+                    margin-top: 10px;
+                }
+            }
+        @media screen and (max-width: $bp-medium) {
+                &{
+                    margin-top: 0px;
+                    column-gap:10px;
+                }
+            }
     }
 }
 
@@ -49,6 +111,5 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    column-gap:20px;
     &__button {}
 }

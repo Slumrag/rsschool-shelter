@@ -41,6 +41,7 @@ html,body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    // align-items: center;
 }
 ._container{
     max-width: 1200px;
@@ -328,6 +329,12 @@ html,body {
 .section-title{
     @include setfonts($h3,$color-dark-l);
     white-space: pre-line;
+    @media screen and (max-width: $bp-medium) {
+            & {
+                @include setfonts($h3-mobile);
+                text-align: center;
+            }
+        }
 }
 //footer
 
@@ -340,19 +347,47 @@ html,body {
         display: flex;
         // align-items: center;
         justify-content: space-between;
+        flex-wrap: wrap;;
+        @media screen and (max-width: $bp-large) {
+            & {
+
+                padding-top: 30px;
+                // padding-bottom: 42px;
+                row-gap: 65px;
+                justify-content: center;
+            }
+        }
+        @media screen and (max-width: $bp-medium) {
+            & {
+                row-gap: 40px;
+                
+            }
+        }
 
     }
 
     &__info {
-        padding-top: 16px;
-        // column-gap: 150px;
-        width: 740px;
-
+        margin-top: 16px;
+        // column-gap: 160px;
+        width: 100%;
+        max-width: 740px;
     }
 
-    &_image {
-        // position: relative;
-        // bottom: 0;
+    &__image {
+        max-width: 300px;
+        @media screen and (max-width: $bp-large) {
+                & {
+                    flex:1 0 auto;
+                   
+                }
+            }
+        @media screen and (max-width: $bp-medium) {
+                & {
+                    
+                    max-width: 260px;
+                    
+                }
+            }
     }
 }
 
@@ -360,16 +395,50 @@ html,body {
 .info {
     display: flex;
     justify-content: space-between;
+    @media screen and (max-width: $bp-large) {
+            & {    
+                margin:  0;
+                max-width: 708px;
+                column-gap: 60px;
+                padding: 0 30px;
+            }
+        }
+    @media screen and (max-width: $bp-medium) {
+            & {
+                padding: 0;
+                // flex-wrap: wrap;
+                row-gap:40px;
+                flex-direction: column;
+                align-items: center;
+                // margin: 0 auto;
+
+            }
+        }
 
     &__item {
         display: flex;
         flex-direction: column;
         min-height: 234px;
+        @media screen and (max-width: $bp-medium) {
+                & {
+                    min-height: 0;
+                    align-items: center;
+                    max-width: 300px;
+        
+                }
+            }
     }
 
     &__title {
         @include setfonts($h3, $color-light-xl);
         white-space: pre-line;
+        @media screen and (max-width: $bp-medium) {
+                & {
+                    @include setfonts($h3-mobile);
+                    text-align: center;
+                    white-space:normal;
+                }
+            }
     }
 
     &__content {
@@ -391,11 +460,23 @@ html,body {
     row-gap: 40px;
 }
 
-// .contacts .info__content:last-child{
-//     margin-top: 4px;
+.contacts .info__content:last-child{
+    margin-top: 4px;
+    
 
-// }
+}
 .location {
     min-width: 302px;
     row-gap: 32px;
+    @media screen and (max-width: $bp-medium) {
+        &{
+            row-gap: 40px;
+        }
+        &>.info__title{
+            max-width: 260px;
+        }
+        &>.info__content{
+            align-self: flex-start;
+        }
+    }
 }

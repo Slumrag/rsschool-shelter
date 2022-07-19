@@ -48,11 +48,11 @@
             <section id='about' class="about">
                 <div class="about__container _container">
                     <img src="/assets/img/about-pets.png" alt="cat and dog" class="about__image">
-                    <div class="about-content">
-                        <h3 class="about-content__title section-title">About the shelter&NewLine;&OpenCurlyDoubleQuote;Cozy House&CloseCurlyDoubleQuote;</h3>
-                        <p class="about-content__subtitle">Currently we have 121 dogs and 342 cats on our hands and statistics show that only 20% of them will find a family. The
+                    <div class="about__info">
+                        <h3 class="about__title section-title">About the shelter&NewLine;&OpenCurlyDoubleQuote;Cozy House&CloseCurlyDoubleQuote;</h3>
+                        <p class="about__paragraph">Currently we have 121 dogs and 342 cats on our hands and statistics show that only 20% of them will find a family. The
                         others will continue to live with us and will be waiting for a lucky chance to become dearly loved.</p>
-                        <p class="about-content__subtitle">We feed our wards with the best food and make sure that they do not get sick, feel comfortable (including
+                        <p class="about__paragraph">We feed our wards with the best food and make sure that they do not get sick, feel comfortable (including
                         psychologically) and well. We are supported by 87 volunteers and 28 employees of various skill levels. About 12% of the
                         animals are taken by the shelter staff. Taking care of the animals, they become attached to the pets and would hardly
                         ever leave them alone.</p>
@@ -64,15 +64,19 @@
                 <div class="pets__container _container">
                     <h3 class="pets__title section-title">Our friends who&NewLine;are looking for a house</h3>
                     <div class="pets__slider slider">
-                        <button class=" slider__left  button button_secondary"><img src="/assets/icons/Arrow-left.svg" alt="left" class="left-arrow"></button>
-                        <div class="cards">
-                            <div class="card"><img src="/assets/img/pets/pets-katrine.png" alt="Katrine" class="card__image"><span class="card__name">Katrine</span><button class="card__button button button_secondary">Learn more</button></div>
-                            <div class="card"><img src="/assets/img/pets/pets-jennifer.png" alt="Jennifer" class="card__image"><span class="card__name">Jennifer</span><button class="card__button button button_secondary">Learn more</button></div>
-                            <div class="card"><img src="/assets/img/pets/pets-woody.png" alt="Woody" class="card__image"><span class="card__name">Woody</span><button class="card__button button button_secondary">Learn more</button></div>
+                        <div class="slider__cards">
+                            <div class="slider__card card"><img src="/assets/img/pets/pets-katrine.png" alt="Katrine" class="card__image"><span class="card__name">Katrine</span><button class="card__button button button_secondary">Learn more</button></div>
+                            <div class="slider__card card"><img src="/assets/img/pets/pets-jennifer.png" alt="Jennifer" class="card__image"><span class="card__name">Jennifer</span><button class="card__button button button_secondary">Learn more</button></div>
+                            <div class="slider__card card"><img src="/assets/img/pets/pets-woody.png" alt="Woody" class="card__image"><span class="card__name">Woody</span><button class="card__button button button_secondary">Learn more</button></div>
                         </div>
-                        <button class="slider__right button button_secondary">
-                            <img src="/assets/icons/Arrow-right.svg" alt="right" class="right-arrow">
-                        </button>
+                        <div class="slider__arrows">
+                            <button class=" slider__left  button button_secondary">
+                                <img src="/assets/icons/Arrow-left.svg" alt="left" class="left-arrow">
+                            </button>
+                            <button class="slider__right button button_secondary">
+                                <img src="/assets/icons/Arrow-right.svg" alt="right" class="right-arrow">
+                            </button>
+                        </div>
                     </div>
                     <a href="pets.html" class="pets__button button button_primary">Get to know the rest</a>
                 </div>
@@ -126,7 +130,7 @@
                     <div class="donation__content">
                         <h3 class="donation__title section-title">You can also&NewLine;make a donation</h3>
                         <h5 class="donation__subtitle">Name of the bank / Type of bank account</h5>
-                        <div class="credit-card"><img src="/assets/icons/credit-card.svg" alt="credit card" class="credit-card__image"><a href="#" class="credit-card__number">8380 2880 8028 8791 7435</a></div>
+                        <div class="donation__card credit-card"><img src="/assets/icons/credit-card.svg" alt="credit card" class="credit-card__image"><a href="#" class="credit-card__number">8380 2880 8028 8791 7435</a></div>
                         <p class="donation__legal-info">Legal information and lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas a ipsum at libero sagittis
                         dignissim sed ac diam. Praesent ultrices maximus tortor et vulputate. Interdum et malesuada fames ac ante ipsum primis
                         in faucibus.</p>

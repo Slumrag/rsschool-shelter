@@ -1,5 +1,6 @@
 @use 'sass:map';
 @use 'sass:color';
+@use 'sass:math';
 @import '~normalize.css';
 @import 'fonts'; @import'colors';
 //breakpoints
@@ -42,6 +43,9 @@ html,body {
     flex-direction: column;
     justify-content: space-between;
     // align-items: center;
+}
+._scroll-lock{
+    overflow: hidden;
 }
 ._container{
     max-width: 1200px;
@@ -116,91 +120,113 @@ html,body {
 }
 
 //header
+
 .header {
+    
     &__container {
-        position: relative;
-        // z-index: 5;
-        // min-height: 60px;
-        // padding-top: 60px;
-        // padding-bottom: 60px;
+        // position: relative;
         
     }
 
     &__content {
-        position: relative;
-        z-index: 10;
+        // position: relative;
+        // z-index: 10;
         width: 100%;
         display: flex;
         align-items: center;
         justify-content: space-between;
+        transition: all 0.2s ease;
         &._active{
             position: fixed;
-            margin: 0;
-            display: flex;
-            // flex-direction: column;
-            justify-content: flex-start ;
-            flex-wrap: wrap;
-            top: 0;
+            width: 320px;
             right: 0;
-            align-content: start;
-            row-gap: 158px;
-                width: 320px;
-                height: 100vh;
-                padding: 30px 10px 0 10px;
-                z-index: 10;
+            padding-left: 15px;
+            padding-right: 15px;
+            // left: 0;
+            // margin: 0;
+            // display: flex;
+            // // flex-direction: column;
+            // justify-content: flex-start ;
+            // flex-wrap: wrap;
+            // top: 0;
+            // right: 0;
+            // align-content: start;
+            // row-gap: 158px;
+            //     width: 320px;
+            //     height: 100vh;
+            //     padding: 30px 10px 0 10px;
+            //     z-index: 10;
+        }
+          &._active::after {
+            // opacity: 0;
+            // transition: all 5.0s ease-in-out;
+            // opacity: 1;
+            display: block;
+            position: fixed;
+            z-index: -1;
+            width: 100vw;
+            height: 100vh;
+            top: 0;
+            left: 0;
+            // right: 0;
+            // bottom: 0;
+            // background: red;
+            background: rgba(41, 41, 41, 0.6);
+            content: '';
         }
         
+        
     }
+    $burger-transition:all 0.2s ease;
     &__burger{
         display: none;
             cursor: pointer;
             width: 30px;
             height: 22px;
-            z-index: 10;
-            margin-right: 43px;
+            z-index: 2;
+            margin-right: 40px;
+            // margin-left: 40px;
+            transition: $burger-transition;
         @media screen and (max-width:$bp-medium) {
             &{
-                display: inline-block;
+                display: block;
             }
         }
         &._active{
             transform: rotate(-90deg);
-            align-self: start;
-            margin: 15px  auto;
         }
     }
     &__logo {
-        margin: 0;
-        // z-index: 10;
-        @media screen and (max-width:$bp-medium) {
-            & {
-                // display: block;
-            // margin-left: auto;
-            }
-        }
-        &._active {
-            display: inline-block;
-            align-self: start;
-            // margin-right: auto;
-
-        }
-
+        z-index: 2;
+        // transition: $burger-transition;
     }
 
     &__menu {
-        &._active {
-                flex: 0 0 100%;
-                display: inline-block;
-                min-height: min-content;
-                overflow-y: scroll;
-                // align-self: start;
-                // right: 0;
-                // display: block;
-                // margin: 0 auto;
-                // margin-top: 158px;
-                // z-index: 11 ;
+        transition: $burger-transition;
+        @media screen and (max-width:$bp-medium) {
+                & {
+                    position: fixed;
+                    top: 0;
+                    right: -320px;
+                    height: 100vh;
+                    width: 320px;
+                    z-index: 1;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                }
             }
-        
+        @media screen and (max-height:600px) and (max-width:$bp-medium) {
+            &{
+                padding-top: 120px;
+                justify-content: start;
+            }
+        }
+        &._active {
+                top: 0;
+                right:  0;
+            }
+      
     }
 }
 .logo {
@@ -233,12 +259,6 @@ html,body {
 }
 //nav menu
 .menu {
-    @media screen and (max-width:$bp-medium) {
-        &{
-            display: none;
-           
-        }
-    }
    
     &__list {
         display: flex;
@@ -247,9 +267,15 @@ html,body {
         column-gap: 36px;
         @media screen and (max-width:$bp-medium) {
             & {
+                position: relative;
                 flex-direction: column;
+                // flex: 0 1 auto;
                 align-items: center;
-                row-gap: 40px;
+                // row-gap: 40px;
+                overflow-y: scroll;
+                max-height: 327px;
+                    height: 100%;
+                // max-height: min-content;
             }
         }
     }

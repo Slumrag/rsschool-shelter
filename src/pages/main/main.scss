@@ -3,6 +3,8 @@
 //header
 .header {
     &__container {
+        position: relative;
+        
         @media screen and (max-width: $bp-medium) {
                 & {
                     // height:  180px;
@@ -12,26 +14,25 @@
 
     }
     &__content{
-        margin: 60px 0;
+        position: absolute;
+            width: 100%;
+            top: 60px;
         @media screen and (max-width: $bp-large) {
             &{
-                margin-top: 30px;
+                top: 30px;
             }
         }
-        @media screen and (max-width: $bp-medium) {
-            &{
-                // margin-top: 30px;
-            }
-        }
-        &._active {
-            background: $color-dark-3xl;
-        }
+       
+       
     }
     &__logo{}
     &__burger {
         stroke:$color-primary;
     }
     &__menu{
+        &._active {
+                background: $color-dark-3xl;
+            }
         
     }
 }
@@ -40,26 +41,19 @@
     background: $start-screen-gradient-background;
     &__container{
         padding-top: 180px;
-        margin-top: -180px;
+        // margin-top: -180px;
         display: flex;
         flex-wrap: wrap;
         // align-items: center;
         justify-content: space-between;
         @media screen and (max-width: $bp-large) {
                 & {
-                    // margin-top: 30px;
                     padding-top: 150px;
-                    margin-top: -150px;
                     flex-direction: column;
                     align-items: center;
                 }
             }
         
-        @media screen and (max-width: $bp-medium) {
-            & {
-                // margin-top: 30px;
-            }
-        }
 
     }
     &__content{
@@ -110,7 +104,7 @@
         }
     }
     &__image {
-        position: relative;
+        // position: relative;
         // flex: 0 1 auto;
         align-self: flex-end;
         max-width: 698px;

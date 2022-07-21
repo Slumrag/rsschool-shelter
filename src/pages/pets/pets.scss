@@ -4,16 +4,17 @@
     position: fixed;
     width: 100%;
     &__content {
-        padding: 30px 0;
-        &._active {
-            background: $color-light-xl;
-        }
+        padding-top: 30px ;
+        padding-bottom: 30px ;
+        
     }
     &__burger{
         stroke: $color-dark-3xl;
     }
     &__menu {
-        
+        &._active {
+                background: $color-light-xl;
+            }
     }
 }
 .main{

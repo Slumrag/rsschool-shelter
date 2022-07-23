@@ -1,4 +1,5 @@
 import './pets.scss';
 import './pets.html';
-import burgerHandler from '/index.js';
+import { burgerHandler, importAll } from '/index.js';
+
 burgerHandler();

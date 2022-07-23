@@ -242,6 +242,7 @@
         align-items: center;
         justify-content: space-between;
         position: absolute;
+        // z-index: 1;
         top: calc(50% - 52px/2);
         width: 100%;
         @media screen and (max-width: $bp-medium) {
@@ -258,7 +259,8 @@
         justify-content: space-between;
         column-gap: 90px;
         row-gap: 40px;
-    
+        position: relative;
+        z-index: 1;
         @media screen and (max-width: $bp-large) {
             & {
                column-gap: 40px;

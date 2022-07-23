@@ -135,7 +135,7 @@ html,body {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        transition: all 0.2s ease;
+        // transition: width 2s ease;
         &._active{
             position: fixed;
             width: 320px;
@@ -198,7 +198,11 @@ html,body {
     }
     &__logo {
         z-index: 2;
-        // transition: $burger-transition;
+        // transition: margin 2s ease;
+        &._active{
+            // margin-right: 100px;
+
+        }
     }
 
     &__menu {

@@ -10,7 +10,6 @@
    <div class="wrapper">
     <header class="header">
         <div class="_container">
-
             <div class="header__container">
                 <div class="header__content">
                     <div class="header__logo logo">
@@ -41,28 +40,28 @@
             <div class="pets__container _container">
                 <h3 class="pets__title section-title">Our friends who&NewLine;are looking for a house</h3>
                 <div class="pets__cards">
-                    <div class="pets__card card"><img src="/assets/img/pets/pets-katrine.png" alt="Katrine" class="card__image"><span
+                    <div id="katrine"class="pets__card card"><img src="/assets/img/pets/pets-katrine.png" alt="katrine" class="card__image"><span
                             class="card__name">Katrine</span><button class="card__button button button_secondary">Learn
                             more</button></div>
-                    <div class="pets__card card"><img src="/assets/img/pets/pets-jennifer.png" alt="Jennifer" class="card__image"><span
+                    <div id="jennifer"class="pets__card card"><img src="/assets/img/pets/pets-jennifer.png" alt="jennifer" class="card__image"><span
                             class="card__name">Jennifer</span><button class="card__button button button_secondary">Learn
                             more</button></div>
-                    <div class="pets__card card"><img src="/assets/img/pets/pets-woody.png" alt="Woody" class="card__image"><span
+                    <div id="woody"class="pets__card card"><img src="/assets/img/pets/pets-woody.png" alt="woody" class="card__image"><span
                             class="card__name">Woody</span><button class="card__button button button_secondary">Learn
                             more</button></div>
-                    <div class="pets__card card"><img src="/assets/img/pets/pets-sophia.png" alt="sophia" class="card__image"><span
+                    <div id="sophia"class="pets__card card"><img src="/assets/img/pets/pets-sophia.png" alt="sophia" class="card__image"><span
                             class="card__name">Sophia</span><button class="card__button button button_secondary">Learn
                             more</button></div>
-                    <div class="pets__card card"><img src="/assets/img/pets/pets-timmy.png" alt="timmy" class="card__image"><span
+                    <div id="timmy"class="pets__card card"><img src="/assets/img/pets/pets-timmy.png" alt="timmy" class="card__image"><span
                             class="card__name">Timmy</span><button class="card__button button button_secondary">Learn
                             more</button></div>
-                    <div class="pets__card card"><img src="/assets/img/pets/pets-charly.png" alt="charly" class="card__image"><span
+                    <div id="charly"class="pets__card card"><img src="/assets/img/pets/pets-charly.png" alt="charly" class="card__image"><span
                             class="card__name">Charly</span><button class="card__button button button_secondary">Learn
                             more</button></div>
-                    <div class="pets__card card"><img src="/assets/img/pets/pets-scarlett.png" alt="scarlett" class="card__image"><span
+                    <div id="scarlett"class="pets__card card"><img src="/assets/img/pets/pets-scarlett.png" alt="scarlett" class="card__image"><span
                             class="card__name">Scarlett</span><button class="card__button button button_secondary">Learn
                             more</button></div>
-                    <div class="pets__card card"><img src="/assets/img/pets/pets-freddie.png" alt="freddie" class="card__image"><span
+                    <div id="freddie"class="pets__card card"><img src="/assets/img/pets/pets-freddie.png" alt="freddie" class="card__image"><span
                             class="card__name">Freddie</span><button class="card__button button button_secondary">Learn
                             more</button></div>
                 </div>
@@ -122,6 +121,30 @@
             <img src="/assets/img/footer-puppy.png" alt="footerpuppy" class="footer__image">
         </div>
     </footer>
+    <div class="modal-window _display-none">
+        <div class="modal-window__container">
+            <button class="button button_secondary modal-window__close"><img src="/assets/icons/cross.svg"
+                    alt="close"></button>
+            <img src="/assets/img/pets/pets-jennifer.png" alt="jennifer" class="modal-window__image">
+            <div class="modal-window__textcontent">
+                <div class="modal-window__header">
+                    <h3 class="modal-window__name">Jennifer</h3>
+                    <h4 class="modal-window__breed">Dog - Labrador</h4>
+                </div>
+                <p class="modal-window__description">Jennifer is a sweet 2 months old Labrador that is patiently waiting to
+                    find a new forever home. This girl really enjoys
+                    being able to go outside to run and play, but won't hesitate to play up a storm in the house if she has
+                    all of her
+                    favorite toys.</p>
+                <ul class="modal-window__facts facts">
+                    <li class="modal-window__item"><strong>Age:</strong><span id="age"> 2 months</span></li>
+                    <li class="modal-window__item"><strong>Inoculations:</strong><span id="inoculations">none</span></li>
+                    <li class="modal-window__item"><strong>Diseases:</strong><span id="diseases">none</span></li>
+                    <li class="modal-window__item"><strong>Parasites:</strong><span id="parasites">none</span></li>
+                </ul>
+            </div>
+        </div>
+    </div>
    </div>
 </body>
 </html>

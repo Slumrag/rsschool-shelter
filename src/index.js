@@ -80,13 +80,16 @@ function popUpHandler(params) {
 				: e.target.parentElement.closest('.card').id;
 			renderWindow(cardId);
 			modalWindow.classList.remove('_display-none');
+			document.body.classList.add('_scroll-lock');
 		}
 		if (
-			e.target.closest(`.${mwPrefix}`) ||
+			e.target.classList.contains(`${mwPrefix}`) ||
 			e.target.closest(`.${mwPrefix}__close`)
 		) {
 			modalWindow.classList.add('_display-none');
+			document.body.classList.remove('_scroll-lock');
 		}
+		// console.log(e.target.classList);
 	});
 	function renderWindow(cardId) {
 		// const petsImages

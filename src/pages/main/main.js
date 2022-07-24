@@ -10,11 +10,11 @@ import Pets from '/assets/data/pets.json';
 burgerHandler();
 //importing pets images
 //
+const petsImages = importAll(
+	require.context('/assets/img/pets', false, /\.(png)$/)
+);
 function sliderHandler(params) {
 	const MAX_CARDS = 3; //max number of cards in slider container
-	const petsImages = importAll(
-		require.context('/assets/img/pets', false, /\.(png)$/)
-	);
 	const sliderCards = document.querySelector('.slider__cards');
 	const templateCard = sliderCards.children[0].cloneNode(true);
 	const cards = [];
@@ -36,6 +36,7 @@ function sliderHandler(params) {
 				card.id = element.id;
 				card.querySelector('.card__name').innerText = element.name;
 				card.querySelector('img').src = element.img;
+				card.querySelector('img').alt = element.id;
 				sliderCards.insertAdjacentElement('beforeend', card);
 			});
 			return pets;
@@ -78,4 +79,52 @@ function sliderHandler(params) {
 		shuffleArr(cards);
 	});
 }
+function popUpHandler(params) {
+	const mwPrefix = 'modal-window';
+	const modalWindow = document.querySelector(`.${mwPrefix}`);
+	document.addEventListener('click', (e) => {
+		// console.log(e.target.closest('.card'));
+		if (e.target.closest('.card')) {
+			let cardId = e.target.classList.contains('card')
+				? e.target.id
+				: e.target.parentElement.closest('.card').id;
+			renderWindow(cardId);
+			modalWindow.classList.remove('_display-none');
+		}
+		if (
+			e.target.closest(`.${mwPrefix}`) ||
+			e.target.closest(`.${mwPrefix}__close`)
+		) {
+			modalWindow.classList.add('_display-none');
+		}
+	});
+	function renderWindow(cardId) {
+		// const petsImages
+		const petInfo = Pets.find((el) => el.name.toLowerCase() === cardId);
+		modalWindow.querySelector(`.${mwPrefix}__name`).innerText =
+			petInfo.name;
+		modalWindow.querySelector(
+			`.${mwPrefix}__breed`
+		).innerText = `${petInfo.type} - ${petInfo.breed}`;
+		modalWindow.querySelector(`.${mwPrefix}__image`).src =
+			petsImages[petInfo.img];
+		modalWindow.querySelector(`.${mwPrefix}__image`).alt =
+			petInfo.name.toLowerCase();
+		modalWindow.querySelector(`.${mwPrefix}__description`).innerText =
+			petInfo.description;
+		document.getElementById('age').innerText = ` ${petInfo.age}`;
+		document.getElementById(
+			'inoculations'
+		).innerText = ` ${petInfo.inoculations.join(', ')}`;
+		document.getElementById(
+			'diseases'
+		).innerText = ` ${petInfo.diseases.join(', ')}`;
+		document.getElementById(
+			'parasites'
+		).innerText = ` ${petInfo.parasites.join(', ')}`;
+		console.log(petInfo);
+	}
+	// console.log('popup');
+}
 sliderHandler();
+popUpHandler();

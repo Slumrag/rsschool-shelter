@@ -4,6 +4,9 @@ import Pets from '/assets/data/pets.json';
 const petsImages = importAll(
 	require.context('/assets/img/pets', false, /\.(png)$/)
 );
+Pets.forEach((el) => {
+	el.img = petsImages[el.img];
+});
 function burgerHandler() {
 	const logo = document.querySelector('.header__logo');
 	const burger = document.querySelector('.header__burger');
@@ -69,7 +72,7 @@ function shuffleArr(array) {
 
 	return array;
 }
-function popUpHandler(params) {
+function popUpHandler(data) {
 	const mwPrefix = 'modal-window';
 	const modalWindow = document.querySelector(`.${mwPrefix}`);
 	document.addEventListener('click', (e) => {
@@ -93,14 +96,13 @@ function popUpHandler(params) {
 	});
 	function renderWindow(cardId) {
 		// const petsImages
-		const petInfo = Pets.find((el) => el.name.toLowerCase() === cardId);
+		const petInfo = data.find((el) => el.name.toLowerCase() === cardId);
 		modalWindow.querySelector(`.${mwPrefix}__name`).innerText =
 			petInfo.name;
 		modalWindow.querySelector(
 			`.${mwPrefix}__breed`
 		).innerText = `${petInfo.type} - ${petInfo.breed}`;
-		modalWindow.querySelector(`.${mwPrefix}__image`).src =
-			petsImages[petInfo.img];
+		modalWindow.querySelector(`.${mwPrefix}__image`).src = petInfo.img;
 		modalWindow.querySelector(`.${mwPrefix}__image`).alt =
 			petInfo.name.toLowerCase();
 		modalWindow.querySelector(`.${mwPrefix}__description`).innerText =
@@ -119,10 +121,48 @@ function popUpHandler(params) {
 	}
 	// console.log('popup');
 }
+//returns an array of uniqe elements from 2 arrays
+function findUniqe(arr1, arr2) {
+	return arr1.filter((el) => !arr2.includes(el));
+}
+//returns a subarry of specified length from randomly assigned range
+function sliceRandom(arr, length = arr.length) {
+	if (Array.isArray(arr) && length <= arr.length) {
+		const startIndex = getRandomIntInclusive(0, arr.length - length);
+		const endIndex = startIndex + length;
+		return arr.slice(startIndex, endIndex);
+	}
+}
+// renders array of cards to container
+// returns passed array
+function renderCards(data, containerName) {
+	if (Array.isArray(data)) {
+		const container = document.querySelector(`.${containerName}`);
+		container.innerHTML = '';
+		data.forEach((element) => {
+			let card = document.createElement('div');
+			card.classList.add(
+				`${containerName.match(/^[a-z]+/)}__card`,
+				`card`
+			);
+			let cardID = element.name.toLowerCase();
+			card.id = cardID;
+			card.innerHTML = `<img src=${element.img} alt=${cardID} class="card__image"><span
+                            class="card__name">${element.name}</span><button class="card__button button button_secondary">Learn
+                            more</button>`;
+			container.insertAdjacentElement('beforeend', card);
+		});
+		return data;
+	}
+}
 export {
 	burgerHandler,
-	importAll,
-	getRandomIntInclusive,
-	shuffleArr,
 	popUpHandler,
+	// importAll,
+	// getRandomIntInclusive,
+	findUniqe,
+	shuffleArr,
+	sliceRandom,
+	renderCards,
+	Pets,
 };

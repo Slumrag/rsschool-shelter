@@ -3,6 +3,7 @@
     background: $color-light-xl;
     position: fixed;
     width: 100%;
+    z-index: 1;
     &__content {
         padding-top: 30px ;
         padding-bottom: 30px ;

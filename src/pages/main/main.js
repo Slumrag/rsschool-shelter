@@ -33,6 +33,9 @@ function sliderHandler(data) {
 			cardsRight = temp;
 			cardsLeft = sliceRandom(findUniqe(data, cardsCurrent), MAX_CARDS);
 			// console.log('left');
+			document
+				.querySelector('.slider__cards')
+				.classList.add('_fade-left');
 		}
 		if (e.target.closest('.slider__right')) {
 			let temp = cardsCurrent;
@@ -40,9 +43,20 @@ function sliderHandler(data) {
 			cardsLeft = temp;
 			cardsRight = sliceRandom(findUniqe(data, cardsCurrent), MAX_CARDS);
 			// console.log('right');
+			document
+				.querySelector('.slider__cards')
+				.classList.add('_fade-right');
 		}
-		renderCards(cardsCurrent, 'slider__cards');
-		shuffleArr(data);
+		document.addEventListener('animationend', (e) => {
+			if (e.target.classList.contains('slider__cards')) {
+				// console.log('end animation', e.target);
+				document
+					.querySelector('.slider__cards')
+					.classList.remove('_fade-left', '_fade-right');
+				renderCards(cardsCurrent, 'slider__cards');
+				shuffleArr(data);
+			}
+		});
 	});
 }
 

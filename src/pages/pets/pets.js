@@ -16,6 +16,8 @@ function paginationHandler(data) {
 	const TOTAL_CARDS = 48;
 	let cardsPerPage = 8;
 	let numberOfPages = 6;
+	const petsCards = document.querySelector('.pets__cards');
+
 	if (
 		window.visualViewport.width < 1280 &&
 		window.visualViewport.width >= 768
@@ -46,11 +48,13 @@ function paginationHandler(data) {
 	navButtons['previous'].setAttribute('disabled', 'disabled');
 	shuffleArr(cardPages[pageCounter - 1]);
 	renderCards(cardPages[pageCounter - 1], 'pets__cards');
+
 	document.addEventListener('click', (e) => {
 		if (e.target.closest('.navigation__button:not(#indicator)')) {
 			switch (e.target.id) {
 				case 'first':
 					pageCounter = 1;
+					petsCards.classList.add('_fade-left');
 					// console.log('first', e.target);
 					break;
 				case 'previous':
@@ -59,6 +63,8 @@ function paginationHandler(data) {
 					else {
 						pageCounter = 1;
 					}
+					petsCards.classList.add('_fade-left');
+
 					break;
 				case 'next':
 					// console.log('next', e.target);
@@ -66,12 +72,14 @@ function paginationHandler(data) {
 					else {
 						pageCounter = cardPages.length;
 					}
+					petsCards.classList.add('_fade-right');
+
 					break;
 				case 'last':
 					pageCounter = cardPages.length;
 					// console.log('last', e.target);
-					break;
-				default:
+					petsCards.classList.add('_fade-right');
+
 					break;
 			}
 			if (pageCounter > 1 || pageCounter < cardPages.length) {
@@ -88,8 +96,15 @@ function paginationHandler(data) {
 				navButtons['last'].setAttribute('disabled', 'disabled');
 				navButtons['next'].setAttribute('disabled', 'disabled');
 			}
-			renderCards(cardPages[pageCounter - 1], 'pets__cards');
+		}
+	});
+	document.addEventListener('animationend', (e) => {
+		if (e.target.classList.contains('pets__cards')) {
+			console.log('end animation ', e.target);
+			petsCards.classList.remove('_fade-right', '_fade-left');
+
 			pageIndicator.innerText = pageCounter;
+			renderCards(cardPages[pageCounter - 1], 'pets__cards');
 		}
 	});
 }
